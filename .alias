@@ -1,0 +1,6 @@
+# colors
+alias night="source ~/.mintty-colors-solarized/mintty-solarized-dark.sh"
+alias day="source ~/.mintty-colors-solarized/mintty-solarized-light.sh"
+
+# zypper
+alias zyp="zypper --color"
