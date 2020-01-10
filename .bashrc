@@ -1,49 +1,23 @@
-# Sample .bashrc for SuSE Linux
-# Copyright (c) SuSE GmbH Nuernberg
-
-# There are 3 different types of shells in bash: the login shell, normal shell
-# and interactive shell. Login shells read ~/.profile and interactive shells
-# read ~/.bashrc; in our setup, /etc/profile sources ~/.bashrc - thus all
-# settings made here will also take effect in a login shell.
-#
-# NOTE: It is recommended to make language settings in ~/.profile rather than
-# here, since multilingual X sessions would not work properly if LANG is over-
-# ridden in every subshell.
-
-# Some applications read the EDITOR variable to determine your favourite text
-# editor. So uncomment the line below and enter the editor of your choice :-)
-export EDITOR=/usr/bin/vim
-#export EDITOR=/usr/bin/mcedit
-
-# For some news readers it makes sense to specify the NEWSSERVER variable here
-#export NEWSSERVER=your.news.server
-
-# If you want to use a Palm device with Linux, uncomment the two lines below.
-# For some (older) Palm Pilots, you might need to set a lower baud rate
-# e.g. 57600 or 38400; lowest is 9600 (very slow!)
-#
-#export PILOTPORT=/dev/pilot
-#export PILOTRATE=115200
-
-test -s ~/.alias && . ~/.alias || true
-
-if [ -f ~/.bash_aliases ]; then
-  source ~/.bash_aliases
-fi
+test -s ~/.alias && source ~/.alias || true
+test -s ~/.env && source ~/.env || true
 
 # Colors
 source ~/.mintty-colors-solarized/mintty-solarized-dark.sh
 eval `dircolors -b ~/.dir_colors | sed 's/>&\/dev\/null$//'`
 
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 # Prompt
 PS1="\t "
-PS1+="\[$(tput sgr0)\]"
-PS1+="\[\033[32m\]\u"
-PS1+="\[$(tput sgr0)\]@"
-PS1+="\[\033[33m\]\h"
-PS1+="\[$(tput sgr0)\]:"
-PS1+="\[\033[36m\]\w"
-PS1+="\[\033[37m\]\n"
+PS1+="\[$(tput sgr0)\]\[\033[32m\]\u"
+PS1+="\[$(tput sgr0)\]\[\033[39m\]@"
+PS1+="\[$(tput sgr0)\]\[\033[33m\]\H"
+PS1+="\[$(tput sgr0)\]\[\033[39m\]:"
+PS1+="\[$(tput sgr0)\]\[\033[36m\]\w"
+PS1+="\[$(tput sgr0)\]\[\033[39m\]\$(parse_git_branch)"
+PS1+="\[$(tput sgr0)\]\[\033[37m\]\n"
 PS1+="\[$(tput sgr0)\]\[\033[31m\]\\$ \[$(tput sgr0)\]"
 
 export PS1
