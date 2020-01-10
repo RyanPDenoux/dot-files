@@ -2,5 +2,37 @@
 alias night="source ~/.mintty-colors-solarized/mintty-solarized-dark.sh"
 alias day="source ~/.mintty-colors-solarized/mintty-solarized-light.sh"
 
+# git
+alias gi="git init"
+alias gs="git status"
+alias ga="git add"
+alias gu="git reset HEAD"
+alias gc="git commit"
+alias gr="git rebase"
+alias gd="git diff"
+alias gf="git fetch"
+alias gfm="git pull"
+alias gp="git push"
+alias gl="git log"
+alias gb="git branch"
+alias gco="git checkout"
+
+alias glg="git glog"
+alias gdc="git cdiff"
+
+# entr
+alias entr-pytest="find \( -iname '*.py' \) | entr pytest -vv"
+
+# grep
+alias grep="grep --color=always"
+alias cgrep="grep -rniC 1 --color=always"
+
+# utilities
+alias jobs="jobs -l"
+alias ls="ls --color=always --group-directories-first"
+
+# vim
+alias vime="vim -c 'edit .'"
+
 # zypper
 alias zyp="zypper --color"
