@@ -1,0 +1,9 @@
+[user]
+  email = ryanpdenoux@gmail.com
+  name = Ryan Denoux
+[alias]
+  glog = log --graph --oneline --author-date-order --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset)\t%s%C(reset)%C(dim)- %an%C(reset)%C(yellow)%d%C(reset)'
+  cdiff = diff --color-words=.
+[core]
+  pager = less -X
+  editor = vim
