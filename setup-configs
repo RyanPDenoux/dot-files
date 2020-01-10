@@ -2,7 +2,6 @@
 cd $HOME
 
 ln -fs dot-files/.alias .alias
-ln -fs dot-files/.env .env
 ln -fs dot-files/.inputrc .inputrc
 echo "links created"
 
