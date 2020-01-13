@@ -15,6 +15,7 @@ alias gfm="git pull"
 alias gp="git push"
 alias gl="git log"
 alias gb="git branch"
+alias gm="git merge --no-ff"
 alias gco="git checkout"
 
 alias glg="git glog"
