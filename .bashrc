@@ -5,6 +5,10 @@ test -s ~/.env && source ~/.env || true
 source ~/.mintty-colors-solarized/mintty-solarized-dark.sh
 eval `dircolors -b ~/.dir_colors | sed 's/>&\/dev\/null$//'`
 
+# Bash Completion
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+  source /usr/share/bash-completion/bash_completion
+
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
