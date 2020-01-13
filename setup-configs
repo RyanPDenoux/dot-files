@@ -1,22 +1,9 @@
 # Create links and extendable files to dot-files
 cd $HOME
 
-ln -fs dot-files/.alias .alias
-ln -fs dot-files/.inputrc .inputrc
-echo "links created"
-
-if [ ! -s $HOME/.bashrc ]; then
-  echo "Creating new .bashrc file"
-  cat > $HOME/.bashrc-test << EOF
-  # Base .bashrc
-  source $HOME/dot-files/.bashrc
-
-  # Place specific configurations below
-  EOF
-
-else
-  echo ".bashrc file already exists"
-fi
+ln -vfs dot-files/.gitconfig .gitconfig
+ln -vfs dot-files/.inputrc .inputrc
+ln -vfs dot-files/.vimrc .vimrc
 
 if [ ! -s $HOME/.env ]; then
   echo "Creating new .env file"
@@ -29,4 +16,30 @@ if [ ! -s $HOME/.env ]; then
 
 else
   echo ".env file already exists"
+fi
+
+if [ ! -s $HOME/.alias ]; then
+  echo "Creating new .bashrc file"
+  cat > $HOME/.alias << EOF
+  # Base .bashrc
+  source $HOME/dot-files/.alias
+
+  # Place specific aliases below
+  EOF
+
+else
+  echo ".alias file already exists"
+fi
+
+if [ ! -s $HOME/.bashrc ]; then
+  echo "Creating new .bashrc file"
+  cat > $HOME/.bashrc << EOF
+  # Base .bashrc
+  source $HOME/dot-files/.bashrc
+
+  # Place specific configurations below
+  EOF
+
+else
+  echo ".bashrc file already exists"
 fi
