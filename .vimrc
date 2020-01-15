@@ -10,6 +10,7 @@ Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'yggdroot/indentLine'
 
 " Python IDE
 Plugin 'python-mode/python-mode', {'for': 'python', 'branch': 'develop'}
@@ -19,7 +20,7 @@ Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-sexp'
 Plugin 'luochen1990/rainbow'
 Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-Plugin 'tpope/vim-surround' 
+Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fireplace'
 Plugin 'tpope/vim-salve'
 
@@ -90,3 +91,6 @@ let g:pymode_rope = 1
 let g:pymode_rope_completion = 1
 let g:pymode_rope_complete_on_dot = 1
 let g:pymode_rope_completion_bind = '<C-Space>'
+
+" indentLine "
+let g:indentLine_leadingSpaceEnabled = 1
