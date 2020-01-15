@@ -2,7 +2,12 @@ test -s ~/.alias && source ~/.alias || true
 test -s ~/.env && source ~/.env || true
 
 # Colors
-source ~/.mintty-colors-solarized/mintty-solarized-dark.sh
+hour=$(date +%H)
+if [ "$hour" -gt 6 -a "$hour" -lt 18 ]; then
+  source ~/.mintty-colors-solarized/mintty-solarized-light.sh
+else
+  source ~/.mintty-colors-solarized/mintty-solarized-dark.sh
+fi
 eval `dircolors -b ~/.dir_colors | sed 's/>&\/dev\/null$//'`
 
 # Bash Completion
