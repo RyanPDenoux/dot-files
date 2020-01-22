@@ -1,22 +1,39 @@
 test -s ~/.alias && source ~/.alias || true
 test -s ~/.env && source ~/.env || true
 
-# Colors
-hour=$(date +%H)
-if [ "$hour" -gt 6 -a "$hour" -lt 18 ]; then
-  source ~/.mintty-colors-solarized/mintty-solarized-light.sh
-else
-  source ~/.mintty-colors-solarized/mintty-solarized-dark.sh
-fi
-eval `dircolors -b ~/.dir_colors | sed 's/>&\/dev\/null$//'`
+HOUR=$(date +%H)
 
-# Bash Completion
-[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
-  source /usr/share/bash-completion/bash_completion
+
+day () {
+  source ~/.mintty-colors-solarized/mintty-solarized-light.sh
+  eval $( dircolors -b ~/.dir_colors/dircolors.ansi-light )
+}
+
+
+night () {
+  source ~/.mintty-colors-solarized/mintty-solarized-dark.sh
+  eval $( dircolors -b ~/.dir_colors/dircolors.ansi-dark )
+}
+
 
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
+
+
+# Path additions
+export PATH=/mnt/c/Windows/System32:$PATH
+
+# Colors
+if [ "$HOUR" -gt 6 -a "$HOUR" -lt 18 ]; then
+  day
+else
+  night
+fi
+
+# Bash Completion
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+  source /usr/share/bash-completion/bash_completion
 
 # Prompt
 PS1="\t "
