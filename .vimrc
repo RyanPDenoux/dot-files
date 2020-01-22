@@ -93,4 +93,4 @@ let g:pymode_rope_complete_on_dot = 1
 let g:pymode_rope_completion_bind = '<C-Space>'
 
 " indentLine "
-let g:indentLine_leadingSpaceEnabled = 1
+let g:indentLine_bufTypeExclude = ['help', 'terminal']
