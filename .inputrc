@@ -24,6 +24,7 @@ set completion-ignore-case on
 # matches to be listed immediately instead of ringing the bell.
 #
 #set show-all-if-ambiguous on
+set editing-mode vi
 
 #
 # end
