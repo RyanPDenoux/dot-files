@@ -51,6 +51,11 @@ call togglebg#map("<F5>")
 let mapleader=" "
 
 " Tabs
+nnoremap <leader>h :tabfirst<CR>
+nnoremap <leader>k :tabnext<CR>
+nnoremap <leader>j :tabprev<CR>
+nnoremap <leader>l :tablast<CR>
+
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
 nnoremap <leader>3 3gt
@@ -60,7 +65,6 @@ nnoremap <leader>6 6gt
 nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
-nnoremap <leader>0 :tablast<CR>
 
 " FileTypes
 """ Menus
