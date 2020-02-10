@@ -1,6 +1,6 @@
 # git
+alias g="git status"
 alias gi="git init"
-alias gs="git status"
 alias ga="git add"
 alias gu="git reset HEAD"
 alias gc="git commit"
@@ -21,8 +21,8 @@ alias gdc="git cdiff"
 alias entr-pytest="find \( -iname '*.py' \) | entr pytest -vv"
 
 # grep
-alias grep="grep --color=always"
-alias cgrep="grep -rniC 1 --color=always"
+alias grep="grep --color=auto"
+alias cgrep="grep -rniC 1 --color=auto"
 
 # utilities
 alias jobs="jobs -l"
