@@ -1,9 +1,14 @@
 # Create links and extendable files to dot-files
-cd $HOME
+ln -vfs $HOME/dot-files/.gitconfig $HOME/.gitconfig
+ln -vfs $HOME/dot-files/.inputrc $HOME/.inputrc
+ln -vfs $HOME/dot-files/.sshrc $HOME/.sshrc
+ln -vfs $HOME/dot-files/.vimrc $HOME/.vimrc
 
-ln -vfs dot-files/.gitconfig .gitconfig
-ln -vfs dot-files/.inputrc .inputrc
-ln -vfs dot-files/.vimrc .vimrc
+mkdir -p $HOME/.sshrc.d
+for file in $(find $HOME/dot-files/.sshrc.d -type f); do
+  ln -vfs $HOME/.sshrc.d/${file}
+
+done
 
 if [ ! -s $HOME/.env ]; then
   echo "Creating new .env file"
@@ -19,7 +24,7 @@ else
 fi
 
 if [ ! -s $HOME/.alias ]; then
-  echo "Creating new .bashrc file"
+  echo "Creating new .alias file"
   cat > $HOME/.alias << EOF
 # Base .bashrc
 source $HOME/dot-files/.alias
