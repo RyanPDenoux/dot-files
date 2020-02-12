@@ -10,6 +10,7 @@ Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'ycm-core/YouCompleteMe'
 Plugin 'yggdroot/indentLine'
 
 " Python IDE
@@ -75,7 +76,6 @@ autocmd FileType help
 let NERDTreeShowLineNumbers=1
 
 """ Python
-set omnifunc=syntaxcomplete#Complete
 
 au BufNewFile,BufRead *.py
   \ set tabstop=4 |
@@ -91,10 +91,6 @@ highlight BadWhitespace ctermbg=red guibg=red
 """ Plugins
 " Pymode "
 let g:pymode = 1
-let g:pymode_rope = 1
-let g:pymode_rope_completion = 1
-let g:pymode_rope_complete_on_dot = 1
-let g:pymode_rope_completion_bind = '<C-Space>'
 
 " indentLine "
 let g:indentLine_bufTypeExclude = ['help', 'terminal']
