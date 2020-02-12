@@ -29,6 +29,7 @@ call vundle#end()
 filetype plugin indent on
 
 " Globals
+set mouse=a
 set noswapfile
 set encoding=utf-8
 set number
