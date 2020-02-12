@@ -31,6 +31,22 @@ else
   night
 fi
 
+# Bash History
+shopt -s histappend
+shopt -s cmdhist
+HISTFILESIZE=100000000
+HISTSIZE=10000000
+
+mkdir -p ~/.logs
+export PROMPT_COMMAND=$(cat <<- 'STR'
+if [[ "$(id -u)" -ne 0 ]]; then
+  echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" \
+    >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log;
+
+fi
+STR
+)
+
 # Bash Completion
 [[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
   source /usr/share/bash-completion/bash_completion
