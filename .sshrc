@@ -1,0 +1,65 @@
+# configuration files
+export INPUTINIT="let \$MYINPUTRC='$SSHHOME/.sshrc.d/.inputrc' | source \$MYINPUTRC"
+# export TMUXINIT="let \$MYTMUXCONF='$SSHHOME/.sshrc.d/.tmux.conf' | source \$MYTMUXCONF"
+export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vimrc' | source \$MYVIMRC"
+
+HOUR=$(date +%H)
+
+
+day () {
+  source $SSHHOME/.sshrc.d/mintty-solarized-light.sh
+  eval $( dircolors -b $SSHHOME/.sshrc.d/dircolors.ansi-light )
+}
+
+
+night () {
+  source $SSHHOME/.sshrc.d/mintty-solarized-dark.sh
+  eval $( dircolors -b $SSHHOME/.sshrc.d/dircolors.ansi-dark )
+}
+
+
+parse_git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+
+tmuxrc() {
+  local TMUXDIR=/tmp/rydenotmuxserver
+  if ! [ -d "${TMUXDIR}" ]; then
+
+    rm -rf "${TMUXDIR}"
+    mkdir -p "${TMUXDIR}"
+
+  fi
+
+  rm -rf "${TMUXDIR}/.sshrc.d"
+  cp --recursive "${SSHHOME}/.sshrc" $SSHHOME/bashsshrc $SSHHOME/sshrc $SSHHOME/.sshrc.d $TMUXDIR
+  SSHHOME=$TMUXDIR SHELL=$TMUXDIR/bashsshrc /usr/bin/tmux -S $TMUXDIR/tmuxserver $@
+}
+export SHELL=$(which bash)
+
+
+if [[ -e ~/dot-files/.alias ]]; then
+  source ~/dot-files/.alias
+fi
+
+force_color_prompt=yes
+
+# Colors
+if [ "$HOUR" -gt 6 -a "$HOUR" -lt 18 ]; then
+  day
+else
+  night
+fi
+
+PS1="\t "
+PS1+="\[$(tput sgr0)\]\[\033[32m\]\u"
+PS1+="\[$(tput sgr0)\]\[\033[39m\]@"
+PS1+="\[$(tput sgr0)\]\[\033[33m\]\H"
+PS1+="\[$(tput sgr0)\]\[\033[39m\]:"
+PS1+="\[$(tput sgr0)\]\[\033[36m\]\w"
+PS1+="\[$(tput sgr0)\]\[\033[39m\]\$(parse_git_branch)"
+PS1+="\[$(tput sgr0)\]\[\033[37m\]\n"
+PS1+="\[$(tput sgr0)\]\[\033[31m\]\\$ \[$(tput sgr0)\]"
+
+export PS1
