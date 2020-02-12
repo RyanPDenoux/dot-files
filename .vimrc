@@ -52,6 +52,11 @@ call togglebg#map("<F5>")
 " User Key Mappings
 let mapleader=" "
 
+" Buffers
+set hidden
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
+
 " Tabs
 nnoremap <leader>h :tabfirst<CR>
 nnoremap <leader>k :tabnext<CR>
@@ -77,7 +82,6 @@ autocmd FileType help
 let NERDTreeShowLineNumbers=1
 
 """ Python
-
 au BufNewFile,BufRead *.py
   \ set tabstop=4 |
   \ set softtabstop=4 |
