@@ -22,7 +22,7 @@ alias entr-pytest="find \( -iname '*.py' \) | entr pytest -vv"
 
 # grep
 alias grep="grep --color=auto"
-alias cgrep="grep -rniC 1 --color=auto"
+alias rgrep="grep -rniC 1 --color=auto"
 
 # utilities
 alias jobs="jobs -l"
