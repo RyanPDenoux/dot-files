@@ -99,3 +99,7 @@ let g:pymode = 1
 
 " indentLine "
 let g:indentLine_bufTypeExclude = ['help', 'terminal']
+
+" NERDTree "
+nnoremap <F3> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
