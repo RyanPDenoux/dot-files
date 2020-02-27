@@ -40,6 +40,7 @@ HISTSIZE=10000000
 mkdir -p ~/.logs
 export PROMPT_COMMAND=$(cat <<- 'STR'
 if [[ "$(id -u)" -ne 0 ]]; then
+  history -a
   echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" \
     >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log;
 
@@ -52,12 +53,12 @@ STR
   source /usr/share/bash-completion/bash_completion
 
 # Prompt
-PS1="\t "
+PS1="[\[$(tput bold)\]\t\[$(tput sgr0)\]] "
 PS1+="\[$(tput sgr0)\]\[\033[32m\]\u"
 PS1+="\[$(tput sgr0)\]\[\033[39m\]@"
 PS1+="\[$(tput sgr0)\]\[\033[33m\]\H"
-PS1+="\[$(tput sgr0)\]\[\033[39m\]:"
-PS1+="\[$(tput sgr0)\]\[\033[36m\]\w"
+PS1+="\[$(tput sgr0)\]\[\033[39m\]: "
+PS1+="\[$(tput sgr0)\]\[\033[36m\]\W"
 PS1+="\[$(tput sgr0)\]\[\033[39m\]\$(parse_git_branch)"
 PS1+="\[$(tput sgr0)\]\[\033[37m\]\n"
 PS1+="\[$(tput sgr0)\]\[\033[31m\]\\$ \[$(tput sgr0)\]"
