@@ -21,9 +21,6 @@ parse_git_branch() {
 }
 
 
-# Path additions
-export PATH=/mnt/c/Windows/System32:$PATH
-
 # Colors
 if [ "$HOUR" -gt 6 -a "$HOUR" -lt 18 ]; then
   day

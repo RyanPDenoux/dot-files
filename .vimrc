@@ -7,6 +7,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized.git'
+Plugin 'cesapre/vim-toml'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -94,8 +95,12 @@ au BufNewFile,BufRead *.py
 highlight BadWhitespace ctermbg=red guibg=red
 
 """ Plugins
+" Vundle "
+let g:vundle_default_git_proto = 'git'
+
 " Pymode "
 let g:pymode = 1
+let g:pymode_lint_ignore = ["E501"]
 
 " indentLine "
 let g:indentLine_bufTypeExclude = ['help', 'terminal']
