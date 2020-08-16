@@ -6,7 +6,7 @@ ln -vfs $HOME/dot-files/.vimrc $HOME/.vimrc
 
 mkdir -p $HOME/.sshrc.d
 for file in $(find $HOME/dot-files/.sshrc.d -type f); do
-  ln -vfs $HOME/.sshrc.d/${file}
+  ln -vfs ${file} $HOME/.sshrc.d/$(basename ${file})
 
 done
 
