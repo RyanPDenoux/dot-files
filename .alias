@@ -1,3 +1,8 @@
+# bash
+alias ll="ls -l"
+alias la="ls -al"
+alias l="ls -alF"
+
 # git
 alias g="git status"
 alias gi="git init"
@@ -29,6 +34,7 @@ alias jobs="jobs -l"
 alias ls="ls --color=auto --group-directories-first"
 
 # vim
+alias vim="vi"
 alias vime="vim -c 'edit .'"
 
 # zypper
