@@ -7,7 +7,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized.git'
-Plugin 'cesapre/vim-toml'
+Plugin 'cespare/vim-toml'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -104,6 +104,10 @@ let g:pymode_lint_ignore = ["E501"]
 
 " indentLine "
 let g:indentLine_bufTypeExclude = ['help', 'terminal']
+let g:indentLine_fileTypeExclude = ['clj', 'cljs']
+
+" Rainbow "
+let g:rainbow_active = 1
 
 " NERDTree "
 nnoremap <F3> :NERDTreeToggle<CR>
