@@ -3,6 +3,7 @@ ln -vfs $HOME/dot-files/.gitconfig $HOME/.gitconfig
 ln -vfs $HOME/dot-files/.inputrc $HOME/.inputrc
 ln -vfs $HOME/dot-files/.sshrc $HOME/.sshrc
 ln -vfs $HOME/dot-files/.vimrc $HOME/.vimrc
+ln -vfs $HOME/dot-files/.zshrc $HOME/.zshrc
 
 mkdir -p $HOME/.sshrc.d
 for file in $(find $HOME/dot-files/.sshrc.d -type f); do
