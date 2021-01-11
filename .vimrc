@@ -1,7 +1,7 @@
 set nocompatible
 filetype off
 
-" Plugins
+" -------------------------------- Plugins ----------------------------------- "
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -10,9 +10,11 @@ Plugin 'altercation/vim-colors-solarized.git'
 Plugin 'cespare/vim-toml'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'yggdroot/indentLine'
+Plugin 'lervag/vimtex'
 
 " Python IDE
 Plugin 'python-mode/python-mode', {'for': 'python', 'branch': 'develop'}
@@ -29,7 +31,7 @@ Plugin 'tpope/vim-salve'
 call vundle#end()
 filetype plugin indent on
 
-" Globals
+" -------------------------------- Globals ----------------------------------- "
 set mouse=a
 set noswapfile
 set encoding=utf-8
@@ -74,15 +76,15 @@ nnoremap <leader>7 7gt
 nnoremap <leader>8 8gt
 nnoremap <leader>9 9gt
 
-" FileTypes
-""" Menus
+" ------------------------------- FileTypes ---------------------------------- "
+" Menus
 autocmd FileType help 
   \ setlocal number |
   \ setlocal relativenumber
 
 let NERDTreeShowLineNumbers=1
 
-""" Python
+" Python
 au BufNewFile,BufRead *.py
   \ set tabstop=4 |
   \ set softtabstop=4 |
@@ -94,21 +96,25 @@ au BufNewFile,BufRead *.py
 
 highlight BadWhitespace ctermbg=red guibg=red
 
-""" Plugins
-" Vundle "
+" -------------------------------- Plugins ----------------------------------- "
+" Vundle
 let g:vundle_default_git_proto = 'git'
 
-" Pymode "
-let g:pymode = 1
-let g:pymode_lint_ignore = ["E501"]
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
-" indentLine "
+" indentLine
 let g:indentLine_bufTypeExclude = ['help', 'terminal']
 let g:indentLine_fileTypeExclude = ['clj', 'cljs']
 
-" Rainbow "
-let g:rainbow_active = 1
-
-" NERDTree "
+" NERDTree
 nnoremap <F3> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
+
+" Pymode
+let g:pymode = 1
+let g:pymode_lint_ignore = ["E501"]
+
+" Rainbow
+let g:rainbow_active = 1
