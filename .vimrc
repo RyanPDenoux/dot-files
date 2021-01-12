@@ -96,6 +96,19 @@ au BufNewFile,BufRead *.py
 
 highlight BadWhitespace ctermbg=red guibg=red
 
+" TeX
+map <leader>c :w! \| !compile "<c-r>%"<CR>
+map <leader>p :!opout <c-r>%<CR><CR>
+autocmd VimLeave *.tex !texclear %
+
+" dwmblocks
+autocmd BufWritePost ~/dwmblocks/config.h !cd ~/dwmblocks; sudo make install && { killall -q dwmblocks; setsid -f dwmblocks }
+
+" Diffs
+if &diff
+  highlight! link DiffText MatchParen
+endif
+
 " -------------------------------- Plugins ----------------------------------- "
 " Vundle
 let g:vundle_default_git_proto = 'git'
